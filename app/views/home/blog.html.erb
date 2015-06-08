@@ -1,4 +1,4 @@
 <div class="col-lg-12">
   <h2 class="page-header"><%= @blog.title %></h2>
-  <p class="lead"><%= @blog.body %></p>
+  <p class="lead"><%= @blog.body.html_safe %></p>
 </div>

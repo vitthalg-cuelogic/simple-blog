@@ -15,3 +15,5 @@
 //= require turbolinks
 //= require bootstrap
 //= require bootstrap.min
+//= require ckeditor-jquery
+//= require admin/blogs

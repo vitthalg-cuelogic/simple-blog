@@ -3,12 +3,9 @@
     <% @blogs.each do |blog| %>
       <div class="post-preview">
           <a href="<%= '/blog/'+blog.id.to_s %>">
-              <h2 class="post-title">
-                <%= blog.title %>
-              </h2>
-              <h3 class="post-subtitle">
-                <%= blog.body.truncate(250) %>
-              </h3>
+            <h2 class="post-title">
+              <%= blog.title %>
+            </h2>              
           </a>
           <p class="post-meta">Posted by 
             <a href="#">Simple Blog</a> on <%= formatted_date(blog.created_at) %>
