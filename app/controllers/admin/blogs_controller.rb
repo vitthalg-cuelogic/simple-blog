@@ -4,7 +4,7 @@ class Admin::BlogsController < ApplicationController
   # GET /admin/blogs
   # GET /admin/blogs.json
   def index
-    @admin_blogs = Admin::Blog.all
+    @blogs = Admin::Blog.all
   end
 
   # GET /admin/blogs/1
@@ -14,7 +14,7 @@ class Admin::BlogsController < ApplicationController
 
   # GET /admin/blogs/new
   def new
-    @admin_blog = Admin::Blog.new
+    @blog = Admin::Blog.new
   end
 
   # GET /admin/blogs/1/edit
@@ -24,29 +24,28 @@ class Admin::BlogsController < ApplicationController
   # POST /admin/blogs
   # POST /admin/blogs.json
   def create
-    @admin_blog = Admin::Blog.new(admin_blog_params)
-
     respond_to do |format|
-      if @admin_blog.save
-        format.html { redirect_to @admin_blog, notice: 'Blog was successfully created.' }
-        format.json { render action: 'show', status: :created, location: @admin_blog }
+      if CreateBlog.publish_new_blog(admin_blog_params)
+        format.html { respond_on_success('create') }
       else
-        format.html { render action: 'new' }
-        format.json { render json: @admin_blog.errors, status: :unprocessable_entity }
+        @blog = CreateBlog.blog
+        format.html { render action: 'new' }        
       end
     end
+  end
+
+  def respond_on_success(action)
+     redirect_to admin_blogs_path, notice: "Blog was successfully #{action}d."    
   end
 
   # PATCH/PUT /admin/blogs/1
   # PATCH/PUT /admin/blogs/1.json
   def update
     respond_to do |format|
-      if @admin_blog.update(admin_blog_params)
-        format.html { redirect_to @admin_blog, notice: 'Blog was successfully updated.' }
-        format.json { head :no_content }
-      else
-        format.html { render action: 'edit' }
-        format.json { render json: @admin_blog.errors, status: :unprocessable_entity }
+      if @blog.update(admin_blog_params)
+        format.html { respond_on_success('update') }
+      else        
+        format.html { render action: 'edit' }        
       end
     end
   end
@@ -54,7 +53,7 @@ class Admin::BlogsController < ApplicationController
   # DELETE /admin/blogs/1
   # DELETE /admin/blogs/1.json
   def destroy
-    @admin_blog.destroy
+    @blog.destroy
     respond_to do |format|
       format.html { redirect_to admin_blogs_url }
       format.json { head :no_content }
@@ -64,7 +63,7 @@ class Admin::BlogsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_admin_blog
-      @admin_blog = Admin::Blog.find(params[:id])
+      @blog = Admin::Blog.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

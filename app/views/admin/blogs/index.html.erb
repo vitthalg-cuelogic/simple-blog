@@ -20,7 +20,7 @@
           </tr>
         </thead>
         <tbody>
-          <% @admin_blogs.each do |admin_blog| %>
+          <% @blogs.each do |admin_blog| %>
             <tr>
               <td><%= link_to admin_blog.title, admin_blog %></td>
               <td><%= admin_blog.body.truncate(100) %></td>
