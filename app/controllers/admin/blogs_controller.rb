@@ -4,7 +4,7 @@ class Admin::BlogsController < ApplicationController
   # GET /admin/blogs
   # GET /admin/blogs.json
   def index
-    @blogs = Admin::Blog.all
+    @blogs = BlogList.get_list
   end
 
   # GET /admin/blogs/1
@@ -14,7 +14,7 @@ class Admin::BlogsController < ApplicationController
 
   # GET /admin/blogs/new
   def new
-    @blog = Admin::Blog.new
+    @blog = CreateBlog.new_blog
   end
 
   # GET /admin/blogs/1/edit
