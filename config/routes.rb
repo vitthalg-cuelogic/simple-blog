@@ -3,9 +3,11 @@ BlogExercise::Application.routes.draw do
   get "home/index"
   get 'admin' => 'admin/blogs#index'
   get 'blog/:id' => 'home#blog'
+
   namespace :admin do
     resources :blogs
   end
+  resources :comments
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

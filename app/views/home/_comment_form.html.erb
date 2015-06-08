@@ -1,0 +1,7 @@
+<%= form_for Comment.new, method: :post, remote: true do |f| %>
+	<%= f.text_field :commented_by_name, placeholder: 'Your Name' %></br>
+	<%= f.text_field :commented_by_email, placeholder: 'Your Email' %></br>
+	<%= f.text_area :text, placeholder: 'Type comment here' %></br>
+	<%= f.hidden_field :blog_id, value: blog_id %>
+	<%= f.submit 'Comment'%>
+<% end %>

@@ -2,3 +2,14 @@
   <h2 class="page-header"><%= @blog.title %></h2>
   <p class="lead"><%= @blog.body.html_safe %></p>
 </div>
+<div class="col-lg-12">
+	<div class="row">Comments:</div>
+	<% @comments.each do |c| %>
+		<blockquote><%= c.text %></blockquote> - <%= c.commented_by_name %>
+	<% end %>
+	<div class="row">
+		<div id="comment_form_container">
+			<%= render partial: 'comment_form', locals: { blog_id: @blog.id } %>
+		</div>
+	</div>
+</div>
