@@ -1,6 +1,6 @@
 class Admin::BlogsController < ApplicationController
   before_action :set_admin_blog, only: [:show, :edit, :update, :destroy]
-
+  layout 'admin'
   # GET /admin/blogs
   # GET /admin/blogs.json
   def index

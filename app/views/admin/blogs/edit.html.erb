@@ -1,6 +1,9 @@
-<h1>Editing admin_blog</h1>
-
+ <ol class="breadcrumb">
+  <li>
+      <i class="fa fa-dashboard"></i>  <a href="<%= admin_blogs_path %>">Blogs</a>
+  </li>
+  <li class="active">
+      <i class="fa fa-table"></i> Edit
+  </li>
+</ol>
 <%= render 'form' %>
-
-<%= link_to 'Show', @admin_blog %> |
-<%= link_to 'Back', admin_blogs_path %>
