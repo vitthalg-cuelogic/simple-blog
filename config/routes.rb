@@ -2,6 +2,7 @@ BlogExercise::Application.routes.draw do
   
   get "home/index"
   get 'admin' => 'admin/blogs#index'
+  get 'blog/:id' => 'home#blog'
   namespace :admin do
     resources :blogs
   end
