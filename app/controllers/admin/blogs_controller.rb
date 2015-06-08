@@ -4,7 +4,7 @@ class Admin::BlogsController < ApplicationController
   # GET /admin/blogs
   # GET /admin/blogs.json
   def index
-    @blogs = BlogList.get_list
+    @blogs = BlogList.new.get_list
   end
 
   # GET /admin/blogs/1

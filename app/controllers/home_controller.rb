@@ -1,7 +1,7 @@
 class HomeController < ApplicationController
 	layout 'application'
   def index
-  	@blogs = BlogList.get_list
+  	@blogs = BlogList.new.get_list
   end
 
   def blog

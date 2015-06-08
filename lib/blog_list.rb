@@ -1,10 +1,14 @@
 class BlogList
 
-	def self.get_list(*opts)
+	def initialize(*opts)
 		if opts.blank?
-			Admin::Blog.all
+			@collection = Admin::Blog.all
 		else
-			Admin::Blog.where(opts)
+			@collection = Admin::Blog.where(opts)
 		end
+	end
+	
+	def get_list
+		@collection
 	end
 end
