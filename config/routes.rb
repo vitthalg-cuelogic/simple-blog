@@ -1,5 +1,7 @@
 BlogExercise::Application.routes.draw do
+  
   get "home/index"
+  get 'admin' => 'admin/blogs#index'
   namespace :admin do
     resources :blogs
   end
