@@ -26,3 +26,15 @@ Things you may want to cover:
 
 Please feel free to use a different markup language if you do not plan to run
 <tt>rake doc:app</tt>.
+
+============== Implemented Features ==============
+* A guest user can see list of blogs
+* A guest user can see see a blog post in detail
+* A guest user can comment on blog
+* An Editor user can see list of blogs
+* An Editor user can see blog in detail.
+* An Editor user can edit blog
+* An Editor user can delete blog
+
+
+
