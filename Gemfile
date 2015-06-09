@@ -35,6 +35,10 @@ end
 gem 'mysql2'
 gem 'ckeditor_rails'
 
+%w[rspec-core rspec-expectations rspec-mocks rspec-rails rspec-support].each do |lib|
+  gem lib, git: "git://github.com/rspec/#{lib}.git", branch: 'master'
+end
+gem 'factory_girl'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 
